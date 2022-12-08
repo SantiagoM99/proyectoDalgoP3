@@ -3,6 +3,7 @@ import sys
 
 def saltoDivisorRobotVAMOSVENCIDA(m, k):
     k_inicial = k
+    suma = 0
     if k > m:
         return 0
     else:
@@ -11,7 +12,7 @@ def saltoDivisorRobotVAMOSVENCIDA(m, k):
             if x%k_inicial == 0:
                     matrix[0][x] = 1
 
-        for i in range(0, m+1):
+        for i in range(0, len(matrix)):
             k = (k+1)%998244353
             for j in range(0,m-k_inicial+1):
                 if i == j:
@@ -23,17 +24,11 @@ def saltoDivisorRobotVAMOSVENCIDA(m, k):
                     while z + k + k  < len(matrix[0]):
                         z += k    
                         matrix[i+1][z+k] =  (matrix[i+1][z+k] + matrix[i][j])%998244353
+            suma += matrix[i][-1]
 
-        return sumUltimaColumna(matrix)
+        return suma
 
-def sumUltimaColumna(matrix):
-    suma = 0
-    for i in range(0, len(matrix)):
-        suma += matrix[i][len(matrix[0])-1]
-    return suma
-
-
-"""numero_casos = int(sys.stdin.readline())
+numero_casos = int(sys.stdin.readline())
 for __ in range(numero_casos):
     caso = list(map(int, sys.stdin.readline().split()))
     m = caso[0]
@@ -42,7 +37,3 @@ for __ in range(numero_casos):
         print(salto_robot(m, k))
     else:
         print('Error en los parametros iniciales')
-"""
-
-m= saltoDivisorRobotVAMOSVENCIDA(24,2)
-print(m)
