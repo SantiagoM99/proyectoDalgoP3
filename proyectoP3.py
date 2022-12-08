@@ -1,7 +1,7 @@
 import sys
 
 
-def saltoDivisorRobotVAMOSVENCIDA(m, k):
+def saltoDivisorRobot(m, k):
     k_inicial = k
     suma = 0
     if k > m:
@@ -34,6 +34,6 @@ for __ in range(numero_casos):
     m = caso[0]
     k = caso[1]
     if k >= 1 and k <= 10**5 :
-        print(salto_robot(m, k))
+        print(saltoDivisorRobot(m, k))
     else:
         print('Error en los parametros iniciales')
