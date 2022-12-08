@@ -11,18 +11,18 @@ def saltoDivisorRobotVAMOSVENCIDA(m, k):
             if x%k_inicial == 0:
                     matrix[0][x] = 1
 
-        #k += 1
         for i in range(0, m+1):
             k = (k+1)%998244353
             for j in range(0,m-k_inicial+1):
                 if i == j:
                     matrix[i][j] = 0 #Diagonal principal
-                if j > i and matrix[i][j] > 0 and i + 1 < m and j + k < len(matrix[0]) :
-                     matrix[i+1][j + k] = (matrix[i+1][j + k] + matrix[i][j])%998244353
-                z = j
-                while z + k + k  < len(matrix[0]):
-                    z += k    
-                    matrix[i+1][z+k] =  (matrix[i+1][z+k] + matrix[i][j])%998244353
+                elif matrix[0][j] > 0:
+                    if j > i and matrix[i][j] > 0 and i + 1 < m and j + k < len(matrix[0]) :
+                        matrix[i+1][j + k] = (matrix[i+1][j + k] + matrix[i][j])%998244353
+                    z = j
+                    while z + k + k  < len(matrix[0]):
+                        z += k    
+                        matrix[i+1][z+k] =  (matrix[i+1][z+k] + matrix[i][j])%998244353
 
         return sumUltimaColumna(matrix)
 
@@ -41,7 +41,8 @@ for __ in range(numero_casos):
     if k >= 1 and k <= 10**5 :
         print(salto_robot(m, k))
     else:
-        print('Error en los parametros iniciales')"""
+        print('Error en los parametros iniciales')
+"""
 
-m= saltoDivisorRobotVAMOSVENCIDA(24,1)
+m= saltoDivisorRobotVAMOSVENCIDA(24,2)
 print(m)
