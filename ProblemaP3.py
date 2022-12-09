@@ -1,6 +1,6 @@
 import sys
-# Santiago Martînez Novoa 202112020
-#Mar{ia Alejandra Estrada Garcîa 202021060
+#Santiago Martinez Novoa 202112020
+#Maria Alejandra Estrada Garcîa 202021060
 #Ernesto Carlos Perez Covo 202112530
 
 def saltoDivisorRobot(m, k):
